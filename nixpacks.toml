@@ -1,0 +1,13 @@
+cat > nixpacks.toml << 'EOF'
+[phases.setup]
+nixPkgs = ["python310"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["echo 'Build complete'"]
+
+[start]
+cmd = "streamlit run main.py --server.port $PORT --server.address 0.0.0.0"
+EOF
